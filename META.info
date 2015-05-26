@@ -3,7 +3,7 @@
   "version"     : "0.1.0",
   "description" : "Router for HTTP::Server::Threaded",
   "auth"        : "github:tony-o",
-  "depends"     : [ "HTTP::Server::Threaded::Router" ],
+  "depends"     : [ "HTTP::Server::Threaded" ],
   "provides" : {
     "HTTP::Server::Threaded::Router"  : "/lib/HTTP/Server/Threaded/Router.pm6"
   },
