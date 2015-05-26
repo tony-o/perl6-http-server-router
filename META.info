@@ -5,7 +5,7 @@
   "auth"        : "github:tony-o",
   "depends"     : [ "HTTP::Server::Threaded" ],
   "provides" : {
-    "HTTP::Server::Threaded::Router"  : "/lib/HTTP/Server/Threaded/Router.pm6"
+    "HTTP::Server::Threaded::Router"  : "lib/HTTP/Server/Threaded/Router.pm6"
   },
   "source-url"  : "git://github.com/tony-o/perl6-http-server-threaded-router.git"
 } 
