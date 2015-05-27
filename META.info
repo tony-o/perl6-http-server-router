@@ -5,7 +5,7 @@
   "auth"        : "github:tony-o",
   "depends"     : [ "HTTP::Server" ],
   "provides" : {
-    "HTTP::Server::Router"  : "/lib/HTTP/Server/Router.pm6"
+    "HTTP::Server::Router"  : "lib/HTTP/Server/Router.pm6"
   },
   "source-url"  : "git://github.com/tony-o/perl6-http-server-router.git"
 } 
