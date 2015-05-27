@@ -20,6 +20,11 @@ route '/:whatever', sub($req, $res) {
   $res.close($req.params<whatever>);
 }
 
+route / .+ /, sub($req, $res) {
+  $res.status = 404;
+  $res.close('Not found.');
+}
+
 $server.listen;
 ```
 
