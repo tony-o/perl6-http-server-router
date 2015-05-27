@@ -3,7 +3,7 @@ use HTTP::Server;
 class HTTP::Server::Router {
   has @.routes;
 
-  method push(Str $path, Sub $method) {
+  multi method push(Str $path, Sub $method) {
     my @parts = $path.split('/');
     @.routes.push({
       path   => $path,
@@ -13,23 +13,23 @@ class HTTP::Server::Router {
     });
   }
 
-#  multi method push(Regex $path, Sub $method) {
-#    @.routes.push({
-#      path   => $path,
-#      method => $method,
-#      type   => 0,
-#    });
-#  }
+  multi method push(Regex $path, Sub $method) {
+    @.routes.push({
+      path   => $path,
+      method => $method,
+      type   => 0,
+    });
+  }
 
   method serve(HTTP::Server $app) {
     $app.handler(sub ($req, $res) {
       for @.routes -> $r {
         given $r<type> {
           when 0 {
-            next unless $r<path> ~~ $req.resource;
+            next unless $r<path> ~~ $req.uri;
           }
           when 1 {
-            my @p = $req.resource.split('/');
+            my @p = $req.uri.split('/');
             my $m = True;
             next if @p.elems != @($r<delim>).elems;
             my %h;
@@ -63,7 +63,7 @@ class HTTP::Server::Router {
   }
 }
 
-my HTTP::Server::Threaded::Router $r .=new;
+my HTTP::Server::Router $r .=new;
 
 multi sub route(Str $path, Sub $method) is export {
   $r.push($path, $method);

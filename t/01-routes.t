@@ -30,6 +30,10 @@ route '/poboy', sub ($req, $res) {
   $res.close($str);
 };
 
+route /.+/, sub ($req, $res) {
+  $res.close('404');
+}
+
 start {
   $app.listen;
 };
