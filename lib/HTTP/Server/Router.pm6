@@ -1,6 +1,6 @@
 use HTTP::Server;
 
-class HTTP::Server::Threaded::Router {
+class HTTP::Server::Router {
   has @.routes;
 
   method push(Str $path, Sub $method) {
