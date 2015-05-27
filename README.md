@@ -6,7 +6,7 @@ This here module provides a routing system for use with ```HTTP::Server::Threade
 
 ```perl6
 use HTTP::Server::Threaded;
-use HTTP::Server::Threaded::Router;
+use HTTP::Server::Router;
 
 my HTTP::Server::Threaded $server .=new;
 
