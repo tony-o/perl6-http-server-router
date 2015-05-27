@@ -1,4 +1,4 @@
-use HTTP::Server::Threaded;
+use HTTP::Server;
 
 class HTTP::Server::Threaded::Router {
   has @.routes;
@@ -21,7 +21,7 @@ class HTTP::Server::Threaded::Router {
 #    });
 #  }
 
-  method serve(HTTP::Server::Threaded $app) {
+  method serve(HTTP::Server $app) {
     $app.handler(sub ($req, $res) {
       for @.routes -> $r {
         given $r<type> {
@@ -73,6 +73,6 @@ multi sub route(Regex $path, Sub $method) is export {
   $r.push($path, $method);
 }
 
-sub serve(HTTP::Server::Threaded $app) is export {
+sub serve(HTTP::Server $app) is export {
  $r.serve($app);
 }

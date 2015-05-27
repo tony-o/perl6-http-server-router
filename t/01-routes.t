@@ -1,7 +1,7 @@
 #!/usr/bin/env perl6
 
 use HTTP::Server::Threaded;
-use HTTP::Server::Threaded::Router;
+use HTTP::Server::Router;
 use Test;
 
 sub req ($req) {

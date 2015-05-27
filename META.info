@@ -1,11 +1,11 @@
 {
-  "name"        : "HTTP::Server::Threaded::Router",
+  "name"        : "HTTP::Server::Router",
   "version"     : "0.1.0",
-  "description" : "Router for HTTP::Server::Threaded",
+  "description" : "Router for HTTP::Server based servers",
   "auth"        : "github:tony-o",
-  "depends"     : [ "HTTP::Server::Threaded::Router" ],
+  "depends"     : [ "HTTP::Server" ],
   "provides" : {
-    "HTTP::Server::Threaded::Router"  : "/lib/HTTP/Server/Threaded/Router.pm6"
+    "HTTP::Server::Router"  : "/lib/HTTP/Server/Router.pm6"
   },
-  "source-url"  : "git://github.com/tony-o/perl6-http-server-threaded-router.git"
+  "source-url"  : "git://github.com/tony-o/perl6-http-server-router.git"
 } 
