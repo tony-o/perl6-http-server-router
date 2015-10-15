@@ -36,14 +36,11 @@ await start {
   sub req (Str $req) {
     my IO::Socket::INET $client .=new(:host<127.0.0.1>, :port(1666));
     my $data                     = '';
-    'req'.say;
     $client.print($req);
     sleep .5;
     while my $d = $client.recv {
       $data ~= $d;
     }
-    $data.perl.say;
-    '/req'.say;
     CATCH { default { "CAUGHT {$_}".say; } }
     try { $client.close; CATCH { default { } } }
     return $data;
