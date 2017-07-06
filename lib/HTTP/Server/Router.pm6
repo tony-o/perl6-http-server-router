@@ -44,7 +44,7 @@ class HTTP::Server::Router {
                 last; 
               }
             }
-            $req.params = %h;
+            $req.params = ($req.params, %h);
             next unless $m;    
           }
           default {
