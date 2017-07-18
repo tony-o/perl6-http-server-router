@@ -45,6 +45,7 @@ class HTTP::Server::Router {
               }
             }
             $req.params = ($req.params, %h);
+            $req.params<stash><route> //= $r<path>;
             next unless $m;    
           }
           default {
