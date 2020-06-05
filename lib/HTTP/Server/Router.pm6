@@ -1,4 +1,4 @@
-use HTTP::Server;
+use HTTP::Server::Role;
 use soft;
 
 class HTTP::Server::Router {
@@ -22,7 +22,7 @@ class HTTP::Server::Router {
     }));
   }
 
-  method serve(HTTP::Server $app) {
+  method serve(HTTP::Server::Role $app) {
     $app.handler(sub ($req, $res) {
       for @.routes -> $r {
         given $r<type> {
@@ -77,6 +77,6 @@ multi sub route(Regex $path, Callable $method) is export {
   $r.append($path, $method);
 }
 
-sub serve(HTTP::Server $app) is export {
+sub serve(HTTP::Server::Role $app) is export {
  $r.serve($app);
 }
