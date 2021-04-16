@@ -3,10 +3,11 @@
   "name"        : "HTTP::Server::Router",
   "version"     : "0.1.7",
   "description" : "Router for HTTP::Server based servers",
-  "auth"        : "github:tony-o",
-  "depends"     : [ "HTTP::Roles", "HTTP::Server::Async" ],
+  "auth"        : "zef:tony-o",
+  "depends"     : [ "HTTP::Roles" ],
+  "test-depends": [ "HTTP::Server::Async" ],
   "provides" : {
     "HTTP::Server::Router"  : "lib/HTTP/Server/Router.pm6"
   },
   "source-url"  : "git://github.com/tony-o/perl6-http-server-router.git"
-} 
+}
